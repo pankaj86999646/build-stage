@@ -1,8 +1,15 @@
 jobs:
   include:
     - stage: test
+      before_script:
+        - chmod +x test  # Grant execute permissions to the test script
       script: ./test 1
     - # stage name not required, will continue to use `test`
+      before_script:
+        - chmod +x test  # Grant execute permissions to the test script
       script: ./test 2
     - stage: deploy
+      before_script:
+        - chmod +x deploy  # Grant execute permissions to the deploy script
       script: ./deploy
+
