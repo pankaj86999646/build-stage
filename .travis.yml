@@ -1,8 +1,9 @@
 jobs:
   include:
-    - stage: test
-      script: ./test 1
-    - # stage name not required, will continue to use `test`
-      script: ./test 2
+    - stage: "Tests"                # naming the Tests stage
+      name: "Unit Tests"            # names the first Tests stage job
+      script: ./unit-tests
+    - script: ./integration-tests
+      name: "Integration Tests"     # names the second Tests stage job
     - stage: deploy
-      script: ./deploy
+      name: "Deploy to GC
